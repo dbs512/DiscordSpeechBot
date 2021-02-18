@@ -376,7 +376,7 @@ function speak_impl(voice_Connection, mapKey) {
                 let new_buffer = await convert_audio(buffer)
                 let out = await transcribe(new_buffer)
                 if (out != null) {
-                    transcribe(out);
+                    //transcribe(out);
                     process_commands_query(out, mapKey, user.id);
                 }
             } catch (e) {
@@ -393,6 +393,10 @@ function process_commands_query(query, mapKey, userid) {
         return;
 
     let out = null;
+    if (query && query.length ){
+        query.text_Channel.send(user.username + ': ' + txt);    
+    }
+    
 
     const regex = /^music ([a-zA-Z]+)(.+?)?$/;
     const m = query.toLowerCase().match(regex);
