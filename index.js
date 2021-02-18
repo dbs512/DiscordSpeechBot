@@ -468,9 +468,10 @@ function process_commands_query(query, mapKey, userid) {
         console.log('text_Channel out: ' + out)
         const val = guildMap.get(mapKey);
         val.text_Channel.send(out)
+        transcribe(out);
     }
-    else
-         transcribe(out) ;
+    //else
+      //   transcribe(out) ;
 
   // return transcribe_gspeech(buffer)
 
