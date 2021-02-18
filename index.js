@@ -391,11 +391,11 @@ function speak_impl(voice_Connection, mapKey) {
 function process_commands_query(query, mapKey, userid) {
     if (!query || !query.length)
         return;
+    
 
     let out = null;
-    if (query && query.length ){
-        query.text_Channel.send(user.username + ': ' + txt);    
-    }
+    query.text_Channel.send(user.username + ': ' + query);    
+    
     
 
     const regex = /^music ([a-zA-Z]+)(.+?)?$/;
