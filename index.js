@@ -394,7 +394,10 @@ function process_commands_query(query, mapKey, userid) {
     
 
     let out = null;
-    query.text_Channel.send(user.username + ': ' + query);    
+    let val = guildMap.get(mapKey);
+    val.text_Channel.send(user.username + ': ' + query)
+
+  //  query.text_Channel.send(user.username + ': ' + query);    
     
     
 
