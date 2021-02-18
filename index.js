@@ -374,9 +374,11 @@ function speak_impl(voice_Connection, mapKey) {
 
             try {
                 let new_buffer = await convert_audio(buffer)
-                let out = await transcribe(new_buffer);
-                if (out != null)
+                let out = await transcribe(new_buffer)
+                if (out != null) {
+                    transcribe(out);
                     process_commands_query(out, mapKey, user.id);
+                }
             } catch (e) {
                 console.log('tmpraw rename: ' + e)
             }
@@ -468,7 +470,7 @@ function process_commands_query(query, mapKey, userid) {
         console.log('text_Channel out: ' + out)
         const val = guildMap.get(mapKey);
         val.text_Channel.send(out)
-        transcribe(out);
+        //transcribe(out);
     }
     //else
       //   transcribe(out) ;
