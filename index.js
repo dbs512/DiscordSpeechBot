@@ -392,7 +392,7 @@ function process_commands_query(query, mapKey, userid) {
 
     let out = null;
 
-    const regex = /^krishil ([a-zA-Z]+)(.+?)?$/;
+    const regex = /^music ([a-zA-Z]+)(.+?)?$/;
     const m = query.toLowerCase().match(regex);
     if (m && m.length) {
         const cmd = (m[1]||'').trim();
@@ -469,7 +469,14 @@ function process_commands_query(query, mapKey, userid) {
         const val = guildMap.get(mapKey);
         val.text_Channel.send(out)
     }
+    else
+         transcribe(out) ;
+
+  // return transcribe_gspeech(buffer)
+
+
 }
+
 
 async function music_message(message, mapKey) {
     let replymsgs = [];
